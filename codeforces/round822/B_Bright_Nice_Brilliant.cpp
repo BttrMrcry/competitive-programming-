@@ -22,12 +22,26 @@ void setIO(){
 
 
 inline void solve() {
+    int n;
+    cin >> n;
+    FO(i, n){
+        ll start = 0;
+        ll end = i;
+        FO(j, i + 1){
+            if(j == start || j == end)
+                cout << "1 ";
+            else
+                cout << "0 ";
+        }
+        cout << endl;
+    }    
 
 }
 
 int main() {
     if(getenv("CP_IO")) setIO();
     int T = 1;
+    cin >> T;
     FO(tc, T){
         solve();
     }

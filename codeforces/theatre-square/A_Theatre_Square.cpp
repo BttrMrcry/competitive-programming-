@@ -22,7 +22,11 @@ void setIO(){
 
 
 inline void solve() {
-
+ double n, m, a;
+ cin >> n >>  m >> a;
+ ll b = ceil(n / a);
+ ll c = ceil(m / a);
+ cout << b * c << endl;
 }
 
 int main() {

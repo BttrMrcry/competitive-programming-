@@ -22,12 +22,25 @@ void setIO(){
 
 
 inline void solve() {
+    int n;
+    cin >> n;
+    array<int, 100> a;
+    FO(i, n){
+        cin >> a[i];
+    }
 
+    int c = 0;
+    for(int i = 1; i < n; i++){
+        if(a[i - 1] % 2 == a[i] % 2)
+            c++;
+    }
+    cout << c << endl;
 }
 
 int main() {
     if(getenv("CP_IO")) setIO();
     int T = 1;
+    cin >> T;
     FO(tc, T){
         solve();
     }

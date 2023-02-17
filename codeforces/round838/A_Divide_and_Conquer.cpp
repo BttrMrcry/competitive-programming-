@@ -22,12 +22,47 @@ void setIO(){
 
 
 inline void solve() {
+    int n;
+    cin >> n;
+    int minm = INT_MAX;
+    int odd = 0, even = 0;
+    FO(i, n){
+        int a;
+        cin >> a;
+        int c = 0;
 
+        if(a % 2){
+            odd++;
+            while(a % 2){
+                a = a/2;
+                c++;
+            }
+            minm = min(minm, c);
+        }else{
+            while(a % 2 == 0 && a != 0){
+                a = a/2;
+                c++;
+            }
+            if(a != 0){
+                minm = min(minm, c);
+            }
+        }
+
+
+    }
+
+    if(odd % 2){
+        cout << minm << endl;
+    }else{
+        cout << "0" << endl;
+    }
+    
 }
 
 int main() {
     if(getenv("CP_IO")) setIO();
     int T = 1;
+    cin >> T;
     FO(tc, T){
         solve();
     }

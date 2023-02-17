@@ -22,12 +22,29 @@ void setIO(){
 
 
 inline void solve() {
+    ll n;
+    cin >> n;
+    vector<pair<ll, ll>> nums(n);
+    FO(i, n){
+        cin >> nums[i].first;
+        nums[i].second = i + 1;
+    }
 
+    sort(nums.begin(), nums.end());
+
+    ll multi = nums[0].first;
+    cout << n << endl;
+    FO(i, n){
+        ll nextmul = ((nums[i].first - 1) / multi + 1) * multi;
+        cout << nums[i].second << " " << nextmul - nums[i].first << endl;
+        multi = nextmul; 
+    }
 }
 
 int main() {
     if(getenv("CP_IO")) setIO();
     int T = 1;
+    cin >> T;
     FO(tc, T){
         solve();
     }

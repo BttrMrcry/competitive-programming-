@@ -22,12 +22,26 @@ void setIO(){
 
 
 inline void solve() {
-
+    int n;
+    cin >> n;
+    vector<ll> nums(n); 
+    FO(i, n){
+        cin >> nums[i];
+    }
+    sort(nums.begin(), nums.end());
+    ll minMov = INT_MAX;
+    for(int i = 2; i < n; i++){
+        ll median = nums[i - 1];
+        ll v = abs(median - nums[i]) + abs(median - nums[i - 1]) + abs(median - nums[i - 2]);
+        minMov = min(v, minMov);
+    }
+    cout  << minMov << endl;
 }
 
 int main() {
     if(getenv("CP_IO")) setIO();
     int T = 1;
+    cin >> T;
     FO(tc, T){
         solve();
     }

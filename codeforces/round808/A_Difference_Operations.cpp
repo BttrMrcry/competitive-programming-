@@ -21,13 +21,29 @@ void setIO(){
 }
 
 
-inline void solve() {
+void solve() {
+    ll n;
+    cin >> n;
+    vector<int> nums;
+    FO(i , n){
+        int num;
+        cin >> num;
+        nums.push_back(num);
+    }
 
+    FO(i, n){
+        if(nums[i] % nums[0]){
+            cout << "NO" <<endl;
+            return;
+        }
+    }
+    cout << "YES" << endl;
 }
 
 int main() {
     if(getenv("CP_IO")) setIO();
     int T = 1;
+    cin >> T;
     FO(tc, T){
         solve();
     }

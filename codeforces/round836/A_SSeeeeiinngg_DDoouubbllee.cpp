@@ -22,12 +22,17 @@ void setIO(){
 
 
 inline void solve() {
-
+    string s;
+    cin >> s;
+    cout << s;
+    reverse(s.begin(), s.end());
+    cout << s << endl;
 }
 
 int main() {
     if(getenv("CP_IO")) setIO();
     int T = 1;
+    cin >> T;
     FO(tc, T){
         solve();
     }

@@ -21,8 +21,27 @@ void setIO(){
 }
 
 
-inline void solve() {
 
+inline void solve() {
+    bool vowels[26] = {0};
+    vowels['a' - 'a'] = 1;
+    vowels['o' - 'a'] = 1;
+    vowels['y' - 'a'] = 1;
+    vowels['e' - 'a'] = 1;
+    vowels['u' - 'a'] = 1;
+    vowels['i' - 'a'] = 1;
+    
+    string input;
+    cin >> input;
+    for(auto c: input){
+        c = tolower(c);
+        if(vowels[c-'a']){
+            continue;
+        }
+        cout <<'.';
+        cout<<c;
+    }
+    cout << endl;
 }
 
 int main() {

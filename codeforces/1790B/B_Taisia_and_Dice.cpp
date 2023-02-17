@@ -22,12 +22,29 @@ void setIO(){
 
 
 inline void solve() {
+    int n, s, r;
+    cin >> n >> s >> r;
+    int sol = (n-1)*(s - r);
+    int defaults = n - 1;
+    while(sol != r){
+        int res = min(s - r - 1, sol - r);
+        //cout <<"res: "<<endl;
+        sol = sol - res;
+        cout << s - r - res << " ";
+        defaults--;
+    }
 
+    FO(i, defaults){
+        cout << s - r << " ";
+    }
+
+    cout << s - r << endl;
 }
 
 int main() {
     if(getenv("CP_IO")) setIO();
     int T = 1;
+    cin >> T;
     FO(tc, T){
         solve();
     }

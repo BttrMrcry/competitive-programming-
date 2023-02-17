@@ -22,6 +22,41 @@ void setIO(){
 
 
 inline void solve() {
+    string s;
+    cin >> s;
+    int ab = INT_MAX;
+    int ba = INT_MAX;
+    for(int i = 1; i < s.size(); i++){
+        if( s[i - 1] == 'A' && s[i] == 'B'){
+            ab = i;
+            break;
+        }   
+    }
+
+    for(int i = 1; i < s.size(); i++){
+        if( s[i - 1] == 'B' && s[i] == 'A'){
+            ba = i;
+            break;
+        }   
+    }
+
+    for(int i = ab + 2; i < s.size(); i++){
+        if( s[i - 1] == 'B' && s[i] == 'A'){
+            cout << "YES" << endl;
+            return;
+        }   
+    }
+
+    for(int i = ba + 2; i < s.size(); i++){
+        if( s[i - 1] == 'A' && s[i] == 'B'){
+            cout << "YES" << endl;
+            return;
+        }   
+    }
+
+    cout << "NO" << endl;
+
+
 
 }
 

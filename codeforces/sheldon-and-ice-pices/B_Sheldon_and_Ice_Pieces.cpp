@@ -22,6 +22,42 @@ void setIO(){
 
 
 inline void solve() {
+    array<int, 10> digits = {0};
+    array<int, 10> count = {0};
+    string t;
+    string ice;
+
+    cin >> t >> ice;
+
+    for(char c : t){
+        if(c -'0' == 9){
+            digits[6] += 1;
+        }else if(c - '0' == 5){
+            digits[2] += 1;
+        }else{
+            digits[c - '0'] += 1;
+        }
+
+    }
+
+    for(char c: ice){
+        if(c -'0' == 9){
+            count[6] += 1;
+        }else if(c - '0' == 5){
+            count[2] += 1;
+        }else{
+            count[c - '0'] += 1;
+        }
+    }
+
+    int sol = INT_MAX;
+
+    FO(i, 10){
+        if(digits[i] != 0)
+            sol = min(count[i]/digits[i], sol);
+    }
+
+    cout << sol << endl;
 
 }
 

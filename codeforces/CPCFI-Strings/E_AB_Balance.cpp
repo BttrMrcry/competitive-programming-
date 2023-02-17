@@ -22,12 +22,28 @@ void setIO(){
 
 
 inline void solve() {
+    string s;
+    cin >> s;
+    if(s[0] == s[s.length() - 1]){
+        cout << s << endl;
+        return;
+    }
+        
+    if(s[0] == 'a'){
+        s[0] = 'b';
+    }else{
+        s[0] = 'a';
+    }
+
+    cout << s << endl;
+
 
 }
 
 int main() {
     if(getenv("CP_IO")) setIO();
     int T = 1;
+    cin >> T;
     FO(tc, T){
         solve();
     }
