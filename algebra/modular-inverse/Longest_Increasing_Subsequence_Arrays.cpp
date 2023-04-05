@@ -132,3 +132,39 @@ int main() {
     }
     return 0;
 }
+
+
+//Cada nodo es un elemento que pueden unirse entre sí
+struct UnionFindNode {
+    UnionFindNode* parent;
+    long long size;
+
+    UnionFindNode(){
+        parent = this;
+    }
+
+    UnionFindNode* find(){
+        if(parent == this){
+            return this;
+        }else{
+            return parent = parent->find();
+        }
+    }
+
+    UnionFindNode* unionSets(UnionFindNode* other){
+        UnionFindNode* set1 = this->find();
+        UnionFindNode* set2 = other->find();
+
+        if(set1 == set2){
+            return set1;
+        }else{
+            if(set2->size > set1->size){
+                swap(set1, set2);
+            }
+            set2->parent = set1;
+            set1->size += set2->size;
+            return set1;
+        }
+    }
+};
+
